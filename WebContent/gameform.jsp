@@ -14,7 +14,7 @@
 	<body>
 		<div>
 			<h1>Inventory Management</h1>
-	
+
 			<div class="header">
 				<a href="${pageContext.request.contextPath}/" class="header-button">VIEW
 					ALL</a> <a href="${pageContext.request.contextPath}/add"
@@ -24,9 +24,9 @@
 		<div>
 			<c:if test="${game != null}">
 				<h2>Edit Game</h2>
-				<form action="update" method="post">s
+				<form action="update" method="post">
 					<input type="hidden" name="id" value="<c:out value="${game.id}" />" />
-	
+
 					<label> Title <input type="text" name="title"
 						value="<c:out value="${game.title}" />" />
 					</label> <label> Developer <input type="text" name="developer"
