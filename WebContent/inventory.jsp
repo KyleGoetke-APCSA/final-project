@@ -13,7 +13,7 @@
 	</head>
 	<body>
 		<div>
-			<h1>Inventory Management</h1>
+			<h1>Gamefly Inventory Management</h1>
 	
 			<div class="header">
 				<a href="${pageContext.request.contextPath}/" class="header-button">VIEW
@@ -34,7 +34,7 @@
 					<tr>
 						<td><c:out value="${game.title}" /></td>
 						<td><c:out value="${game.developer}" /></td>
-						<td><c:out value="${game.keys}" /></td>
+						<td><c:out value="${game.copies}" /></td>
 						<td><c:out value="${game.available}" /></td>
 						<td>
 							<div>

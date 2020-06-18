@@ -61,9 +61,9 @@ public class Controller extends HttpServlet {
 			throws SQLException, ServletException, IOException {
 		String title = request.getParameter("title");
 		String developer = request.getParameter("developer");
-		int keys = Integer.parseInt(request.getParameter("keys"));
+		int copies = Integer.parseInt(request.getParameter("copies"));
 
-		dao.insertGame(title, developer, keys, keys);
+		dao.insertGame(title, developer, copies, copies);
 		response.sendRedirect(request.getContextPath() + "/");
 	}
 
@@ -97,12 +97,12 @@ public class Controller extends HttpServlet {
 		case "save":
 			String title = request.getParameter("title");
 			String developer = request.getParameter("developer");
-			int keys = Integer.parseInt(request.getParameter("keys"));
-			int available = game.getAvailable() + (keys - game.getKeys());
+			int copies = Integer.parseInt(request.getParameter("copies"));
+			int available = game.getAvailable() + (copies - game.getCopies());
 
 			game.setTitle(title);
 			game.setDeveloper(developer);
-			game.setKeys(keys);
+			game.setCopies(copies);
 			game.setAvailable(available);
 			break;
 		case "delete":

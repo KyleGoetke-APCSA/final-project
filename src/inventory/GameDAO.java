@@ -35,10 +35,10 @@ public class GameDAO {
 		if (rs.next()) {
 			String title = rs.getString("title");
 			String developer = rs.getString("developer");
-			int keys = rs.getInt("keys");
+			int copies = rs.getInt("copies");
 			int available = rs.getInt("available");
 
-			game = new Game(id, title, developer, keys, available);
+			game = new Game(id, title, developer, copies, available);
 		}
 
 		rs.close();
@@ -60,10 +60,10 @@ public class GameDAO {
 			int id = rs.getInt("game_id");
 			String title = rs.getString("title");
 			String developer = rs.getString("developer");
-			int keys = rs.getInt("keys");
+			int copies = rs.getInt("copies");
 			int available = rs.getInt("available");
 
-			games.add(new Game(id, title, developer, keys, available));
+			games.add(new Game(id, title, developer, copies, available));
 		}
 
 		rs.close();
@@ -73,15 +73,15 @@ public class GameDAO {
 		return games;
 	}
 
-	public boolean insertGame(String title, String developer, int keys, int available) throws SQLException {
-		final String sql = "INSERT INTO games (title, developer, keys, available) " + "VALUES (?, ?, ?, ?)";
+	public boolean insertGame(String title, String developer, int copies, int available) throws SQLException {
+		final String sql = "INSERT INTO games (title, developer, copies, available) " + "VALUES (?, ?, ?, ?)";
 
 		Connection conn = getConnection();
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 
 		pstmt.setString(1, title);
 		pstmt.setString(2, developer);
-		pstmt.setInt(3, keys);
+		pstmt.setInt(3, copies);
 		pstmt.setInt(4, available);
 		int affected = pstmt.executeUpdate();
 
@@ -92,14 +92,14 @@ public class GameDAO {
 	}
 
 	public boolean updateGame(Game game) throws SQLException {
-		final String sql = "UPDATE games SET title = ?, developer = ?, keys = ?, available = ? " + "WHERE game_id = ?";
+		final String sql = "UPDATE games SET title = ?, developer = ?, copies = ?, available = ? " + "WHERE game_id = ?";
 
 		Connection conn = getConnection();
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 
 		pstmt.setString(1, game.getTitle());
 		pstmt.setString(2, game.getDeveloper());
-		pstmt.setInt(3, game.getKeys());
+		pstmt.setInt(3, game.getCopies());
 		pstmt.setInt(4, game.getAvailable());
 		pstmt.setInt(5, game.getId());
 		int affected = pstmt.executeUpdate();

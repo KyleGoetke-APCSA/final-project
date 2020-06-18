@@ -4,16 +4,16 @@ public class Game {
 	private int id;
 	private String title;
 	private String developer;
-	private int keys;
+	private int copies;
 	private int available;
 
-	public Game(int id, String title, String developer, int keys, int available) {
+	public Game(int id, String title, String developer, int copies, int available) {
 		super();
 
 		this.id = id;
 		this.title = title;
 		this.developer = developer;
-		this.keys = keys;
+		this.copies = copies;
 		this.available = available;
 	}
 
@@ -29,12 +29,12 @@ public class Game {
 		return developer;
 	}
 
-	public int getKeys() {
-		return keys;
+	public int getCopies() {
+		return copies;
 	}
 
-	public void setKeys(int keys) {
-		this.keys = keys;
+	public void setCopies(int copies) {
+		this.copies = copies;
 	}
 
 	public int getAvailable() {
@@ -48,7 +48,7 @@ public class Game {
 	}
 
 	public void returnMe() {
-		if (available < keys) {
+		if (available < copies) {
 			available++;
 		}
 	}

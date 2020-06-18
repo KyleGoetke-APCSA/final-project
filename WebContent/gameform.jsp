@@ -13,8 +13,8 @@
 	</head>
 	<body>
 		<div>
-			<h1>Inventory Management</h1>
-
+			<h1>Gamefly Inventory Management</h1>
+	
 			<div class="header">
 				<a href="${pageContext.request.contextPath}/" class="header-button">VIEW
 					ALL</a> <a href="${pageContext.request.contextPath}/add"
@@ -26,15 +26,15 @@
 				<h2>Edit Game</h2>
 				<form action="update" method="post">
 					<input type="hidden" name="id" value="<c:out value="${game.id}" />" />
-
+	
 					<label> Title <input type="text" name="title"
 						value="<c:out value="${game.title}" />" />
 					</label> <label> Developer <input type="text" name="developer"
 						value="<c:out value="${game.developer}" />" />
-					</label> <label> # of Keys <select name="keys">
-							<c:forEach begin="1" end="15" varStatus="loop">
+					</label> <label> # of Copies <select name="copies">
+							<c:forEach begin="1" end="10000" varStatus="loop">
 								<option value="${loop.index}"
-									<c:if test="${game.keys == loop.index}">selected</c:if>>
+									<c:if test="${game.copies == loop.index}">selected</c:if>>
 									${loop.index}</option>
 							</c:forEach>
 					</select>
@@ -51,7 +51,7 @@
 					<input type="hidden" name="id" />
 					<label> Title <input type="text" name="title" /> </label>
 					<label> Developer <input type="text" name="developer" /> </label>
-					<label> # of Keys <input type="text" name="keys" /> </label>
+					<label> # of Copies <input type="text" name="copies" /> </label>
 					<input type="submit" value="ADD" name="submit" />
 				</form>
 			</c:if>
